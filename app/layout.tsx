@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Connections",
-  description: "Group four groups of four!",
+  title: "Connections Archive: Play NYT Games Online | ConnectionsArchive.net",
+  description: "Discover and play every NYT Connections game online! No login required. Relive past puzzles or explore new ones. Start playing now at connectionsarchive.net.",
 };
 
 export default function RootLayout({
