@@ -6,7 +6,7 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Connections Archive: Play NYT Games | ConnectionsArchive.net",
+  title: "Connections Archive | Play NYT Puzzles Online - Past & New",
   description: "Discover and play every NYT Connections game online! No login required. Relive past puzzles or explore new ones. Start playing now at connectionsarchive.net.",
 };
 
