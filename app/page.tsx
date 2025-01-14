@@ -11,8 +11,57 @@ import useGameLogic from "./_hooks/use-game-logic";
 import usePopup from "./_hooks/use-popup";
 import { SubmitResult, Word } from "./_types";
 import { getPerfection } from "./_utils";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useEffect } from "react";
 
 export default function Home() {
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  // 新增：根据日期获取数据
+  const fetchGameData = async (date: Date) => {
+    try {
+      const formattedDate = date.toISOString().split('T')[0]; // 格式化为YYYY-MM-DD
+      const response = await fetch(
+        `/api/proxy?date=${formattedDate}`
+      );
+      const data = await response.json();
+
+      console.log('response data: ', data);
+      
+      // 转换groups数据格式
+      const transformedCategories = Object.entries(data.groups).map(
+        ([category, details]: [string, any]) => ({
+          category,
+          items: details.members,
+          level: details.level,
+        })
+      );
+      
+      setCategories(transformedCategories);
+    } catch (error) {
+      console.error('Failed to fetch game data:', error);
+      showPopup('Failed to load game data');
+    }
+  };
+
+  // 监听日期变化
+  useEffect(() => {
+    if (selectedDate) {
+      fetchGameData(selectedDate);
+    }
+  }, [selectedDate]);
+
+  // 修改日期选择处理
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date);
+    setShowCalendar(false);
+    fetchGameData(date); // 重新获取数据
+  };
+
   const [popupState, showPopup] = usePopup();
   const {
     gameWords,
@@ -134,7 +183,29 @@ export default function Home() {
           Connections Archive
         </h1>
         <hr className="mb-4 md:mb-4 w-full"></hr>
-        <h1 className="text-black mb-4">Create four groups of four!</h1>
+        <h2 className="text-black mb-4">Create four groups of four!</h2>
+
+        <div className="mt-4">
+          <button
+            onClick={() => setShowCalendar(!showCalendar)}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            选择日期
+          </button>
+
+          {showCalendar && (
+            <div className="absolute z-50 mt-2 shadow-lg rounded-lg">
+              <DatePicker
+                selected={selectedDate}
+                onChange={handleDateChange} // 使用新的处理函数
+                minDate={new Date(2024, 11, 10)}
+                maxDate={new Date()}
+                inline
+              />
+            </div>
+          )}
+        </div>
+
         <div className="relative w-full">
           <Popup show={popupState.show} message={popupState.message} />
           <Grid
