@@ -15,10 +15,16 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useEffect } from "react";
 
+// 新增类型定义
+interface Category {
+  category: string;
+  items: string[];
+  level: number;
+}
+
 export default function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
-
   const [categories, setCategories] = useState<Category[]>([]);
 
   // 新增：根据日期获取数据
@@ -56,7 +62,8 @@ export default function Home() {
   }, [selectedDate]);
 
   // 修改日期选择处理
-  const handleDateChange = (date: Date) => {
+  const handleDateChange = (date: Date | null) => {
+    if (!date) return; // 处理 null 值
     setSelectedDate(date);
     setShowCalendar(false);
     fetchGameData(date); // 重新获取数据
