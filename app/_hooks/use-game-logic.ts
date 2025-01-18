@@ -5,6 +5,7 @@ import { delay, shuffleArray } from "../_utils";
 
 export default function useGameLogic() {
   const [gameWords, setGameWords] = useState<Word[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const selectedWords = useMemo(
     () => gameWords.filter((item) => item.selected),
     [gameWords]
@@ -15,13 +16,44 @@ export default function useGameLogic() {
   const [mistakesRemaining, setMistakesRemaning] = useState(4);
   const guessHistoryRef = useRef<Word[][]>([]);
 
+  // 新增：根据日期获取数据
+  const fetchGameData = async (date: Date) => {
+    try {
+      // 重置游戏状态
+      setMistakesRemaning(4);
+      setIsWon(false);
+      setIsLost(false);
+      setClearedCategories([]);
+      guessHistoryRef.current = [];
+
+      const formattedDate = date.toISOString().split('T')[0];
+      const response = await fetch(`/api/proxy?date=${formattedDate}`);
+      const data = await response.json();
+
+      const transformedCategories = Object.entries(data.groups).map(
+        ([category, details]: [string, any]) => ({
+          category,
+          items: details.members,
+          level: details.level + 1,
+        })
+      );
+
+      setCategories(transformedCategories);
+      
+      // 初始化游戏单词
+      const words: Word[] = transformedCategories
+        .map((category) =>
+          category.items.map((word: string) => ({ word: word, level: category.level }))
+        )
+        .flat();
+      setGameWords(shuffleArray(words));
+    } catch (error) {
+      console.error('Failed to fetch game data:', error);
+    }
+  };
+
   useEffect(() => {
-    const words: Word[] = categories
-      .map((category) =>
-        category.items.map((word) => ({ word: word, level: category.level }))
-      )
-      .flat();
-    setGameWords(shuffleArray(words));
+    fetchGameData(new Date()); // 默认加载当天数据
   }, []);
 
   const selectWord = (word: Word): void => {
@@ -145,5 +177,7 @@ export default function useGameLogic() {
     getSubmitResult,
     handleLoss,
     handleWin,
+    categories,
+    fetchGameData,
   };
 }

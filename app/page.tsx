@@ -25,34 +25,6 @@ interface Category {
 export default function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  // 新增：根据日期获取数据
-  const fetchGameData = async (date: Date) => {
-    try {
-      const formattedDate = date.toISOString().split('T')[0]; // 格式化为YYYY-MM-DD
-      const response = await fetch(
-        `/api/proxy?date=${formattedDate}`
-      );
-      const data = await response.json();
-
-      console.log('response data: ', data);
-      
-      // 转换groups数据格式
-      const transformedCategories = Object.entries(data.groups).map(
-        ([category, details]: [string, any]) => ({
-          category,
-          items: details.members,
-          level: details.level,
-        })
-      );
-      
-      setCategories(transformedCategories);
-    } catch (error) {
-      console.error('Failed to fetch game data:', error);
-      showPopup('Failed to load game data');
-    }
-  };
 
   // 监听日期变化
   useEffect(() => {
@@ -66,7 +38,7 @@ export default function Home() {
     if (!date) return; // 处理 null 值
     setSelectedDate(date);
     setShowCalendar(false);
-    fetchGameData(date); // 重新获取数据
+    fetchGameData(date); // 重新获取数据，这会触发游戏状态重置
   };
 
   const [popupState, showPopup] = usePopup();
@@ -84,6 +56,8 @@ export default function Home() {
     getSubmitResult,
     handleWin,
     handleLoss,
+    categories,
+    fetchGameData,
   } = useGameLogic();
 
   const [showGameWonModal, setShowGameWonModal] = useState(false);
@@ -192,12 +166,17 @@ export default function Home() {
         <hr className="mb-4 md:mb-4 w-full"></hr>
         <h2 className="text-black mb-4">Create four groups of four!</h2>
 
-        <div className="mt-4">
+        <div className="mt-4 mb-8">
+          <span>Selected Date: </span>
           <button
             onClick={() => setShowCalendar(!showCalendar)}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-4"
           >
-            选择日期
+            {selectedDate ? selectedDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              }) : "Please select a date"}
           </button>
 
           {showCalendar && (
@@ -205,7 +184,7 @@ export default function Home() {
               <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange} // 使用新的处理函数
-                minDate={new Date(2024, 11, 10)}
+                minDate={new Date(2023, 6, 11)}
                 maxDate={new Date()}
                 inline
               />
