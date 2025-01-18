@@ -27,9 +27,9 @@ export default function Cell(props: CellProps) {
       className={`${bgColor} py-6 rounded-md break-all px-1 transition ease-in-out ${guessAnimation} ${wrongGuessAnimation}`}
       onClick={handleClick}
     >
-      <h2 className={`${textColor} text-xs md:text-lg text-center font-bold`}>
+      <p className={`${textColor} text-xs md:text-lg text-center font-bold`}>
         {props.cellValue.word.toUpperCase()}
-      </h2>
+      </p>
     </button>
   );
 }

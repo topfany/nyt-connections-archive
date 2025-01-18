@@ -164,7 +164,7 @@ export default function Home() {
           Connections Archive
         </h1>
         <hr className="mb-4 md:mb-4 w-full"></hr>
-        <h2 className="text-black mb-4">Create four groups of four!</h2>
+        {/* <h2 className="text-black mb-4">Create four groups of four!</h2> */}
 
         <div className="mt-4 mb-8">
           <span>Selected Date: </span>
@@ -203,10 +203,10 @@ export default function Home() {
             wrongGuessAnimationState={wrongGuessAnimationState}
           />
         </div>
-        <h2 className="text-black my-4 md:my-8 mx-8">
+        <p className="text-black my-4 md:my-8 mx-8">
           Mistakes Remaining:{" "}
           {mistakesRemaining > 0 ? Array(mistakesRemaining).fill("•") : ""}
-        </h2>
+        </p>
         {renderControlButtons()}
       </div>
       <GameWonModal
