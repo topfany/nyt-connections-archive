@@ -16,7 +16,6 @@ export async function GET(request: Request) {
       }
     );
 
-    return NextResponse.json(response);
 
     // 检查响应状态
     if (!response.ok) {
