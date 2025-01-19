@@ -14,7 +14,7 @@ import { getPerfection } from "./_utils";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useEffect } from "react";
-import Navbar from './_components/header/navbar';
+// import Navbar from './_components/header/navbar';
 
 // 新增类型定义
 interface Category {
@@ -160,7 +160,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="pt-16 flex flex-col items-center w-11/12 md:w-3/4 lg:w-7/12 mx-auto mt-14">
         <h1 className="text-black text-4xl font-semibold my-4 ml-4">
           Connections Archive - Daily Word Game Collection

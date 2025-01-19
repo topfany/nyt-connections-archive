@@ -49,15 +49,15 @@ export default function Navbar() {
               <Link href="/" className="text-gray-700 hover:text-blue-600 p-2">
                 Home
               </Link>
-              <Link href="/archive" className="text-gray-700 hover:text-blue-600 p-2">
-                Archive
+              <Link href="/privacy" className="text-gray-700 hover:text-blue-600 p-2">
+                Privacy Policy
               </Link>
-              <Link href="/how-to-play" className="text-gray-700 hover:text-blue-600 p-2">
+              {/* <Link href="/how-to-play" className="text-gray-700 hover:text-blue-600 p-2">
                 How to Play
               </Link>
               <Link href="/about" className="text-gray-700 hover:text-blue-600 p-2">
                 About
-              </Link>
+              </Link> */}
             </div>
           </div>
         )}

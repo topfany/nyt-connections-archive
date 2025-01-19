@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from 'next/script';
+import Footer from './_components/footer/footer';
+import Navbar from './_components/header/navbar';
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="font-sans">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body /* className={inter.className} */>
         {/* Google Tag */}
         <Script
@@ -31,7 +36,9 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <Navbar />
         {children}
+        <Footer />
         </body>
     </html>
   );
