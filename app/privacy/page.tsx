@@ -82,7 +82,7 @@ export default function PrivacyPage() {
                 Usage Data is collected automatically when using the Service.
             </p>
             <p className="mb-4 text-gray-700 leading-relaxed">
-                Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+                Usage Data may include information such as Your Device&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
             </p>
             <p className="mb-4 text-gray-700 leading-relaxed">
                 When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
                     <p><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</p>
                 </li>
                 <li className="mb-4">
-                    <p><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</p>
+                    <p><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application&apos;s push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</p>
                 </li>
                 <li className="mb-4">
                     <p><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</p>
@@ -177,7 +177,7 @@ export default function PrivacyPage() {
             </p>
             <h3 className="text-1xl font-semibold mb-4">Transfer of Your Personal Data</h3>
             <p className="mb-4 text-gray-700 leading-relaxed">
-                Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
+                Your information, including Personal Data, is processed at the Company&apos;s operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
             </p>
             <p className="mb-4 text-gray-700 leading-relaxed">
                 Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.
@@ -227,7 +227,7 @@ export default function PrivacyPage() {
           <section className="mb-12 max-w-3xl mx-auto">
             <h2 className="text-2xl font-semibold mb-4">Links to Other Websites</h2>
             <p className="mb-4 text-gray-700 leading-relaxed">
-                Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.
+                Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party&apos;s site. We strongly advise You to review the Privacy Policy of every site You visit.
             </p>
             <p className="mb-4 text-gray-700 leading-relaxed">
                 We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.

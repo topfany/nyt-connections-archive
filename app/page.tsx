@@ -166,7 +166,7 @@ export default function Home() {
           Connections Archive - Daily Word Game Collection
         </h1>
         <hr className="mb-4 md:mb-4 w-full"></hr>
-        <h2 className="text-black mb-4">Play Today's NYT Connections Puzzle, create four groups of four!</h2>
+        <h2 className="text-black mb-4">Play Today&apos;s NYT Connections Puzzle, create four groups of four!</h2>
 
         <div className="mt-4 mb-6">
           <span>Selected Date: </span>
@@ -242,7 +242,7 @@ export default function Home() {
             <li>Consider multiple meanings of words</li>
             <li>Pay attention to word forms and endings</li>
             <li>Use the process of elimination</li>
-            <li>Don't be afraid to make educated guesses</li>
+            <li>Don&apos;t be afraid to make educated guesses</li>
           </ul>
           <p>Remember, practice makes perfect!</p>
         </div>
