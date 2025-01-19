@@ -14,6 +14,7 @@ import { getPerfection } from "./_utils";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useEffect } from "react";
+import Navbar from './_components/header/navbar';
 
 // 新增类型定义
 interface Category {
@@ -159,14 +160,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col items-center w-11/12 md:w-3/4 lg:w-7/12 mx-auto mt-14">
+      <Navbar />
+      <div className="pt-16 flex flex-col items-center w-11/12 md:w-3/4 lg:w-7/12 mx-auto mt-14">
         <h1 className="text-black text-4xl font-semibold my-4 ml-4">
-          Connections Archive
+          Connections Archive - Daily Word Game Collection
         </h1>
         <hr className="mb-4 md:mb-4 w-full"></hr>
-        {/* <h2 className="text-black mb-4">Create four groups of four!</h2> */}
+        <h2 className="text-black mb-4">Play Today's NYT Connections Puzzle, create four groups of four!</h2>
 
-        <div className="mt-4 mb-8">
+        <div className="mt-4 mb-6">
           <span>Selected Date: </span>
           <button
             onClick={() => setShowCalendar(!showCalendar)}
@@ -208,6 +210,43 @@ export default function Home() {
           {mistakesRemaining > 0 ? Array(mistakesRemaining).fill("•") : ""}
         </p>
         {renderControlButtons()}
+
+        <div className="my-4 mb-6 w-full">
+          {/* 游戏玩法说明，帮助新用户理解游戏规则 */}
+          <h3 className="text-2xl font-semibold mb-3">How to Play</h3>
+          <p>
+            NYT Connections is a daily word puzzle game where players group 16 words into 4 categories of 4 related items each. 
+            Test your vocabulary and logical thinking skills by finding the hidden connections between words. 
+            Each puzzle has a unique theme and increasing difficulty levels.
+          </p>
+        </div>
+
+        <div className="my-4 mb-6 w-full">
+          {/* 强调存档功能，展示网站的核心价值 */}
+          <h3 className="text-2xl font-semibold mb-3">Daily Puzzle Archive</h3>
+          <p>
+            Explore our comprehensive collection of <a href="https://www.nytimes.com/games/connections" className="underline hover:underline" target="_blank" rel="nofollow" title="NYT Connections">NYT Connections puzzles</a> from past dates. 
+            Relive your favorite challenges or try puzzles you missed. 
+            Our archive preserves every daily puzzle, allowing you to play anytime and track your progress over time.
+          </p>
+        </div>
+
+        <div className="my-4 mb-6 w-full">
+          {/* 游戏技巧分享，增加实用价值 */}
+          <h3 className="text-2xl font-semibold mb-3">Tips and Strategies</h3>
+          <p>
+            Improve your skills with these expert tips: 
+          </p>
+          <ul className="list-disc ml-8">
+            <li>Look for obvious connections first</li>
+            <li>Consider multiple meanings of words</li>
+            <li>Pay attention to word forms and endings</li>
+            <li>Use the process of elimination</li>
+            <li>Don't be afraid to make educated guesses</li>
+          </ul>
+          <p>Remember, practice makes perfect!</p>
+        </div>
+
       </div>
       <GameWonModal
         isOpen={showGameWonModal}
