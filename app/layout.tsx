@@ -8,7 +8,7 @@ import Navbar from './_components/header/navbar';
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Connections Archive | Play NYT Puzzles Online - Past & New",
+  title: "Daily NYT Connections Puzzle Archive & Tips",
   description: "Discover and play every NYT Connections game online! No login required. Relive past puzzles or explore new ones. Start playing now at connectionsarchive.net.",
 };
 
