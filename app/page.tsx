@@ -161,6 +161,9 @@ export default function Home() {
   return (
     <>
       {/* <Navbar /> */}
+      <head>
+        <link rel="canonical" href="https://connectionsarchive.net/" />
+      </head>
       <div className="pt-16 flex flex-col items-center w-11/12 md:w-3/4 lg:w-7/12 mx-auto mt-14">
         <h1 className="text-black text-4xl font-semibold my-4 ml-4">
           Connections Archive - Daily Word Game Collection
